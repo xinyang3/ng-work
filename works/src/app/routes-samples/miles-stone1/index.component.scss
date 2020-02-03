@@ -1,0 +1,14 @@
+.container {
+  height: 100%;
+}
+.slide {
+  background: #1ac;
+  color: #fff;
+
+  & ::ng-deep .ant-menu-sub.ant-menu-inline {
+    background: #1aaadd;
+  }
+}
+.main {
+  background: #fff;
+}

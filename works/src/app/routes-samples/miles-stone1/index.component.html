@@ -1,0 +1,19 @@
+<nz-layout class="container">
+  <nz-sider class="slide">
+    <ng-container>
+      <ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'" class="slide">
+        <!--<li nz-submenu nzOpen nzTitle="miles-stone-one" nzIcon="setting">-->
+          <!--<ul>-->
+            <!--<li nz-menu-item>item1</li>-->
+            <!--<li nz-menu-item>item1</li>-->
+            <!--<li nz-menu-item>item1</li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <li nz-menu-item *ngFor="let item of menus, index as i" (click)="onclick(item)">{{item.name}}</li>
+      </ul>
+    </ng-container>
+  </nz-sider>
+  <nz-content class="main">
+    <router-outlet></router-outlet>
+  </nz-content>
+</nz-layout>
