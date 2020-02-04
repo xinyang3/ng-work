@@ -14,14 +14,14 @@ export default class IndexComponent implements OnInit {
 
   ngOnInit() {
     this.menus = [{
-      name: '里程碑1',
+      name: '路由起步',
       path: 'router-index/index-home'
     }, {
-      name: '里程碑1',
-      path: 'index-home'
+      name: '英雄列表',
+      path: 'router-index/hero-dashboard'
     }, {
-      name: '里程碑1',
-      path: 'index-home'
+      name: '路由守卫',
+      path: 'router-index/admin'
     }]
   }
 

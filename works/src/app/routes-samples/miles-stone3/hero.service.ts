@@ -13,7 +13,6 @@ import { HEROES } from './mock-heroes';
 export class HeroService {
 
   constructor() {
-    debugger
   }
 
   getHeroes(): Observable<Hero[]> {

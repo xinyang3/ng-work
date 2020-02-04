@@ -1,15 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
+import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
+import {AppComponent} from './app.component';
 
 /** 配置 angular i18n **/
-import { registerLocaleData } from '@angular/common';
+import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
+
 registerLocaleData(zh);
 
 // ng-icon 单独引入
@@ -22,13 +23,16 @@ registerLocaleData(zh);
 // const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
 
 // 路由
-import MilesStoneModule from './routes-samples/miles-stone1/miles-stone.module'
-import { HeroesModule } from './routes-samples/miles-stone3/heroes.module'
+import MilesStoneModule from './routes-samples/index/miles-stone.module'
+// import { HeroesModule } from './routes-samples/miles-stone3/heroes.module'
 import AppRoutingModule from './routes-samples/app-routing.module';
+import { LoginComponent } from './routes-samples/auth/login/login.component';
+// import {AdminModule} from './routes-samples/admin/admin.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,14 +43,19 @@ import AppRoutingModule from './routes-samples/app-routing.module';
     BrowserAnimationsModule,
     // NzIconModule,
     MilesStoneModule,
-    HeroesModule,
+    // HeroesModule,
+    // AdminModule,
     AppRoutingModule
+  ],
+  exports: [
+    NgZorroAntdModule
   ],
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},
-  //   { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' }, // 不提供的话，即为 Ant Design 的主题蓝色
-  //   { provide: NZ_ICONS, useValue: icons }
+    //   { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' }, // 不提供的话，即为 Ant Design 的主题蓝色
+    //   { provide: NZ_ICONS, useValue: icons }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

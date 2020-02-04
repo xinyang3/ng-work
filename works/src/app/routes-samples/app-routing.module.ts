@@ -12,7 +12,7 @@ const routes: Routes = [
     PageNotFoundComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes, {enableTracing: true})
+    RouterModule.forRoot(routes)
   ],
   exports: [
     RouterModule

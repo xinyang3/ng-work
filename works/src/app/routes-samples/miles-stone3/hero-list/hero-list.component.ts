@@ -26,6 +26,7 @@ export class HeroListComponent implements OnInit {
   }
   //
   ngOnInit() {
+    debugger
     this.heroes$ = this.route.paramMap.pipe(
       switchMap(params => {
         // (+) before `params.get()` turns the string into a number
