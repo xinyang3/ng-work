@@ -22,6 +22,9 @@ export default class IndexComponent implements OnInit {
     }, {
       name: '路由守卫',
       path: 'router-index/admin'
+    }, {
+      name: '危机中心',
+      path: 'router-index/crisis-center'
     }]
   }
 

@@ -3,8 +3,7 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import { FormsModule }    from '@angular/forms';
 
-
-import {RouterModule, Routes} from "@angular/router";
+import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
 import CrisisListComponent from '../miles-stone1/crisis-list.component';
 import HeroListComponent from '../miles-stone1/hero-list.component';
 import IndexComponent from './index.component';
@@ -28,6 +27,7 @@ import {CrisisCenterComponent} from "../admin/crisis-center/crisis-center.compon
 import {CrisisListComponent as CrisisListComponentAdmin} from "../admin/crisis-center/crisis-list/crisis-list.component";
 import {CrisisDetailComponent} from "../admin/crisis-center/crisis-detail/crisis-detail.component";
 import {CrisisDetailResolverService} from "../admin/crisis-center/crisis-detail-resolver.service";
+import {CrisisCenterAuthGuard} from "../auth/crisis-center.auth.guard";
 
 
 const appRoutes: Routes = [
@@ -89,6 +89,14 @@ const appRoutes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'crisis-center',
+        loadChildren: () => import('../crisis-center/crisis-center-routing.module').then(m => m.CrisisCenterRoutingModule),
+        // canLoad: [CrisisCenterAuthGuard] // 路由守卫懒加载
+        data: {
+          preload: true
+        }
       }
     ]
   }
